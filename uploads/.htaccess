@@ -1,0 +1,16 @@
+# KRITIS: folder ini menyimpan file upload dari user.
+# Jangan pernah biarkan PHP dieksekusi di sini, apa pun ekstensi file yang berhasil lolos validasi.
+
+<IfModule mod_php7.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag engine off
+</IfModule>
+
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phar|pl|py|cgi|asp|aspx|exe|sh)$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes -ExecCGI
+AddHandler cgi-script .php .phtml .php3 .php4 .php5 .php7 .phar .pl .py .cgi .asp .aspx .exe

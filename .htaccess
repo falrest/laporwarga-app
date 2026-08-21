@@ -1,0 +1,11 @@
+# Cegah listing direktori
+Options -Indexes
+
+# Blokir akses langsung ke folder internal (config, app logic)
+RedirectMatch 403 ^/app/
+
+# Header keamanan dasar (duplikat dari security.php, sebagai lapisan tambahan)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "DENY"
+</IfModule>

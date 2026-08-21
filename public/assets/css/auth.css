@@ -1,0 +1,61 @@
+/* Auth pages: splash, login, register */
+
+.auth-shell {
+  max-width: 420px; margin: 0 auto; min-height: 100vh;
+  padding: 48px 24px 40px; display: flex; flex-direction: column;
+}
+
+/* Splash */
+.splash-shell {
+  max-width: 420px; margin: 0 auto; min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 24px;
+  background: linear-gradient(180deg, #F7F9FC 0%, #EAF2FF 100%);
+}
+.splash-logo {
+  width: 92px; height: 92px; border-radius: 26px; background: var(--white);
+  display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);
+  margin-bottom: 22px;
+}
+.splash-logo img { width: 48px; height: 48px; }
+.splash-shell h1 { font-size: 22px; margin: 0 0 10px; color: var(--primary); }
+.splash-shell p { color: var(--text-secondary); font-size: 15px; margin: 0 0 28px; max-width: 280px; }
+.splash-dots { display: flex; gap: 6px; margin-bottom: 14px; }
+.splash-dots span {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--primary); opacity: .35;
+  animation: dot-pulse 1.2s ease infinite;
+}
+.splash-dots span:nth-child(2) { animation-delay: .15s; }
+.splash-dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot-pulse { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+.splash-loading-text { font-size: 12px; letter-spacing: .12em; color: var(--text-secondary); font-weight: 600; }
+
+/* Login */
+.auth-logo-wrap { text-align: center; margin-bottom: 20px; }
+.auth-logo-wrap img { width: 68px; height: 68px; border-radius: 18px; box-shadow: var(--shadow-sm); background: var(--white); padding: 8px; }
+.auth-title { text-align: center; font-size: 22px; margin: 4px 0 6px; }
+.auth-subtitle { text-align: center; color: var(--text-secondary); font-size: 14.5px; margin: 0 0 26px; }
+
+.auth-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 26px 22px; }
+.auth-row-between { display: flex; align-items: center; justify-content: space-between; margin: 4px 0 20px; font-size: 13.5px; }
+.remember-me { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); }
+.auth-divider { display: flex; align-items: center; gap: 12px; margin: 18px 0; color: var(--text-secondary); font-size: 12.5px; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.auth-footer { text-align: center; margin-top: 22px; font-size: 14px; color: var(--text-secondary); }
+
+.btn-google {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; background: var(--white); border: 1.5px solid var(--border);
+  border-radius: var(--radius-full); padding: 13px; font-weight: 600; font-size: 14.5px;
+  color: var(--text); cursor: pointer;
+}
+
+/* Register */
+.section-card { background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--border); padding: 20px; margin-bottom: 16px; }
+.section-title { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; margin: 0 0 16px; }
+.section-title .section-icon {
+  width: 30px; height: 30px; border-radius: 8px; background: var(--light-blue); color: var(--primary);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.consent-row { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-secondary); margin: 4px 0 20px; }
+.consent-row input { margin-top: 3px; }

@@ -1,0 +1,110 @@
+/* =========================================================
+   LaporWarga Admin - Desktop-first layout
+   ========================================================= */
+
+:root {
+  --admin-sidebar-bg: #1B2537;
+  --admin-sidebar-bg-hover: #253150;
+  --admin-sidebar-text: #A7B0C3;
+  --admin-sidebar-text-muted: #6B7385;
+}
+
+body { background: var(--bg); }
+
+.admin-shell { display: flex; min-height: 100vh; }
+
+/* ---------- Sidebar ---------- */
+.admin-sidebar {
+  width: 250px; flex-shrink: 0; background: var(--admin-sidebar-bg);
+  min-height: 100vh; position: sticky; top: 0; align-self: flex-start;
+  padding: 22px 16px; overflow-y: auto;
+}
+.admin-brand {
+  display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 17px;
+  padding: 6px 10px 26px;
+}
+.admin-brand-logo {
+  width: 32px; height: 32px; border-radius: 9px; background: #fff;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.admin-nav-group-label {
+  color: var(--admin-sidebar-text-muted); font-size: 10.5px; font-weight: 700; letter-spacing: .08em;
+  padding: 18px 12px 8px;
+}
+.admin-nav-item {
+  display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 10px;
+  color: var(--admin-sidebar-text); font-size: 14px; font-weight: 500; margin-bottom: 2px;
+}
+.admin-nav-item:hover { background: var(--admin-sidebar-bg-hover); color: #fff; }
+.admin-nav-item.active { background: var(--primary); color: #fff; font-weight: 600; }
+
+/* ---------- Main content ---------- */
+.admin-main { flex: 1; min-width: 0; }
+.admin-topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.admin-content { padding: 28px; }
+
+/* ---------- KPI cards ---------- */
+.kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px; }
+@media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+.kpi-card { background: var(--white); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 18px; }
+.kpi-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.kpi-value { font-size: 24px; font-weight: 800; color: var(--text); }
+.kpi-label { font-size: 12.5px; color: var(--text-secondary); font-weight: 500; }
+.kpi-delta { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-full); float: right; }
+.kpi-delta.up { background: #E7F7ED; color: var(--success); }
+.kpi-delta.down { background: #FDECEC; color: var(--danger); }
+
+/* ---------- Panels ---------- */
+.admin-panel { background: var(--white); border-radius: var(--radius-md); border: 1px solid var(--border); padding: 20px; }
+.admin-panel-title { font-size: 16px; font-weight: 700; margin: 0 0 2px; }
+.admin-panel-subtitle { font-size: 12.5px; color: var(--text-secondary); margin: 0; }
+
+/* ---------- Data table ---------- */
+.admin-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.admin-table th {
+  text-align: left; padding: 10px 12px; color: var(--text-secondary); font-weight: 600; font-size: 12px;
+  border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.admin-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-avatar-chip {
+  width: 30px; height: 30px; border-radius: 50%; background: var(--light-blue); color: var(--primary);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700; margin-right: 8px;
+}
+
+.btn-sm { padding: 8px 16px; font-size: 12.5px; min-height: unset; border-radius: 8px; }
+.btn-table { padding: 7px 14px; font-size: 12.5px; min-height: unset; border-radius: 8px; background: var(--light-blue); color: var(--primary); border: none; font-weight: 600; cursor: pointer; }
+.btn-table.primary { background: var(--primary); color: #fff; }
+
+/* Filter bar */
+.filter-bar { display: flex; align-items: center; gap: 10px; background: var(--light-blue); border-radius: 12px; padding: 10px 14px; margin-bottom: 22px; flex-wrap: wrap; }
+.filter-select { border: 1px solid var(--border); background: var(--white); border-radius: 8px; padding: 8px 12px; font-size: 13px; font-family: var(--font); color: var(--text); }
+
+/* Status tabs (reports.php) */
+.status-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.status-tabs a {
+  padding: 9px 16px; border-radius: var(--radius-full); border: 1px solid var(--border); background: var(--white);
+  color: var(--text-secondary); font-size: 13px; font-weight: 600;
+}
+.status-tabs a.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* Modal (admin CRUD) */
+.admin-modal-overlay {
+  position: fixed; inset: 0; background: rgba(23,32,51,.5); display: none;
+  align-items: center; justify-content: center; z-index: 200; padding: 20px;
+}
+.admin-modal-overlay.open { display: flex; }
+.admin-modal {
+  background: var(--white); border-radius: var(--radius-md); width: 100%; max-width: 480px;
+  padding: 24px; max-height: 90vh; overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .admin-sidebar { display: none; }
+  .admin-content { padding: 18px; }
+}

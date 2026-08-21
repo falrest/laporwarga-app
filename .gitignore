@@ -1,0 +1,26 @@
+# File upload dari user (foto laporan, profil, bukti penanganan) - jangan di-commit.
+# Folder tetap ada di repo lewat .gitkeep, isinya saja yang diabaikan.
+uploads/reports/*
+uploads/profiles/*
+uploads/evidence/*
+!uploads/reports/.gitkeep
+!uploads/profiles/.gitkeep
+!uploads/evidence/.gitkeep
+
+# File environment/config lokal (jika nanti Anda pisahkan kredensial dari database.php)
+.env
+.env.local
+
+# File sistem operasi & editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Log & cache PHP (jika ada saat development)
+*.log
+error_log
+
+# Dependency manager (jika suatu saat pakai composer)
+vendor/
+composer.lock
